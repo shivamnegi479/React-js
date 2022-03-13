@@ -1,12 +1,13 @@
-import Tut from './components/alltut';
+import Navbar from './components/navbar';
 import './components/style.css'
 function App() {
   return (
    <>
-   <div className="home-div">
-        <Tut />
+      <Navbar  title="MyWebs"/>
+  
+  
    
-   </div>
+  
    </>
   );
 }
