@@ -33,7 +33,7 @@ const Navbar =(props)=>{
 
 // props type deine 
 
-// Navbar.PropTypes={
-//     title:PropTypes.string
-// }
+Navbar.propTypes={
+    title:PropTypes.string
+}
 export default Navbar;

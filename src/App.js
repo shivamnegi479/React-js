@@ -1,15 +1,14 @@
-import Navbar from './components/navbar';
+import Main from './components/main';
 import './components/style.css'
 function App() {
   return (
    <>
-      <Navbar  title="MyWebs"/>
-  
-  
-   
-  
+  <Main />
    </>
   );
 }
 
 export default App;
+
+
+
