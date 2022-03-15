@@ -36,4 +36,17 @@ const Navbar =(props)=>{
 Navbar.propTypes={
     title:PropTypes.string
 }
+
+// required title 
+
+// Navbar.propTypes={
+//     title:PropTypes.string.isRequired
+// }
+
+
+// default props 
+
+Navbar.defaultProps = {
+    title: 'Set title here'
+  };
 export default Navbar;
