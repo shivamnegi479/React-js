@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 
 export default function TextForm(props) {
+
+  const [text,setText]=useState('Enter text here');
   const handleOnchange=(event)=>{
     setText(event.target.value)
   }
@@ -12,7 +14,6 @@ export default function TextForm(props) {
     let newtext=text.toLowerCase();
     setText(newtext)
   }
-  const [text,setText]=useState('Enter text here');
 
   let CountWord=text.split(' ');
   
@@ -26,10 +27,24 @@ const repeat = text => {
         if(!res.includes(strArr[i])){
            res.push(strArr[i]);
         };
-     }; 
+      }; 
   };
   return res.join(" ");
 };
+
+let textRepeater=repeat(text);
+
+// colse repeted text 
+
+// copy text 
+
+function copyTextfun() {
+  var copyText = document.getElementById("mybox");
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  navigator.clipboard.writeText(copyText.value);
+  copyText.select();
+}
+// close copy text 
   return (
     <div className='container'>
       
@@ -37,9 +52,9 @@ const repeat = text => {
     <h3 className='mb-3'>{props.heading}</h3>
   <textarea className="form-control" value={text} onChange={handleOnchange} id="mybox" rows="10"></textarea>
     </div>
-    <button className='btn btn-danger ' onClick={Uppercase}>Uppercase</button>
-    <button className='btn btn-success mx-3' onClick={lowercase}>Lowercase</button>
-
+    <button className='btn btn-danger my-2' onClick={Uppercase}>Uppercase</button>
+    <button className='btn btn-success mx-3 my-2' onClick={lowercase}>Lowercase</button>
+    <button className='btn btn-info my-2' onClick={copyTextfun}>Copy Text</button>
     <div className="row">
       <div className="col-md-6">
         <h6 className='my-2'>Word Counts : {CountWord.length }</h6>
@@ -49,9 +64,12 @@ const repeat = text => {
       <div className="col-md-6">
         <div className="preview">
           <h5>Preview : </h5>
-          <p>{text.substring(0,25)}...</p>
+          <p>{text.substring(0,25)}..</p>
         </div>
-       <p>{repeat}</p>
+       <div>
+         <h5>Reapeted Word :</h5>
+       <p>{textRepeater}</p>
+       </div>
       </div>
     </div>
     </div>
