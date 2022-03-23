@@ -15,6 +15,21 @@ export default function TextForm(props) {
   const [text,setText]=useState('Enter text here');
 
   let CountWord=text.split(' ');
+  
+// find repeted text 
+
+const repeat = text => {
+  const strArr = text.split(" ");
+  const res = [];
+  for(let i = 0; i < strArr.length; i++){
+     if(strArr.indexOf(strArr[i]) !== strArr.lastIndexOf(strArr[i])){
+        if(!res.includes(strArr[i])){
+           res.push(strArr[i]);
+        };
+     }; 
+  };
+  return res.join(" ");
+};
   return (
     <div className='container'>
       
@@ -36,6 +51,7 @@ export default function TextForm(props) {
           <h5>Preview : </h5>
           <p>{text.substring(0,25)}...</p>
         </div>
+       <p>{repeat}</p>
       </div>
     </div>
     </div>
