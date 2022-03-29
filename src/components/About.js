@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 
+
 export default function () {
    const [myStyle, setmyStyle] = useState({
        color:"#000",
@@ -37,6 +38,7 @@ export default function () {
 
   return (
       <>
+     
     <div className="container my-4 p-3" style={myStyle}>
         <h3 className='my-2'>About Us</h3>
         <div className="accordion" id="accordionExample">

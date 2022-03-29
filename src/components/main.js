@@ -1,8 +1,15 @@
 import React, { useState } from "react";
-// import About from './About';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import About from './About';
 import Alert from "./Alert";
 import Navbar from "./navbar";
 import TextForm from "./TextForm";
+
 const Main = () => {
   const [mode, setmode] = useState("light");
   const [alert, setAlert] = useState(null)
@@ -62,10 +69,21 @@ const Main = () => {
   
   return (
     <>
+    <Router>
       <Navbar title="MyWebs" mode={mode} toggleMode={togllemode} greenToggle={greenToggle}  />
       <Alert myalert={alert} />
-      <TextForm heading="Enter the text to analyze"  showalert={showAlert}/>
-      {/* < About /> */}
+   
+
+
+      <Switch>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/">
+          <TextForm heading="Enter the text to analyze"  showalert={showAlert}/>
+          </Route>
+        </Switch>
+        </Router>
     </>
   );
 };
