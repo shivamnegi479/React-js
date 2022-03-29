@@ -8,10 +8,14 @@ export default function TextForm(props) {
   const Uppercase = () => {
     let newtext = text.toUpperCase();
     setText(newtext);
+    props.showalert("Converted to uppercase",'danger')
+
   };
   const lowercase = () => {
     let newtext = text.toLowerCase();
     setText(newtext);
+    props.showalert("Converted to lowercase",'info')
+
   };
 
   let CountWord = text.split(" ");
@@ -30,10 +34,16 @@ export default function TextForm(props) {
         }
       }
     }
-    return res.join(" ");
+    return res.join(" ,");
   };
 
   let textRepeater = repeat(text);
+  const find_repeat=()=>{
+    if(textRepeater!==null){
+
+      document.getElementById('reapeat_text').innerHTML=textRepeater;
+    }
+  }
 
   // colse repeted text
 
@@ -44,6 +54,8 @@ export default function TextForm(props) {
     copyText.setSelectionRange(0, 99999); /* For mobile devices */
     navigator.clipboard.writeText(copyText.value);
     copyText.select();
+    props.showalert("Text Copied",'info')
+
   }
   // close copy text
 
@@ -53,9 +65,18 @@ export default function TextForm(props) {
     
     let newText=text.split(/[ ] +/)
     setText(newText.join(" "))
+    props.showalert("Extra Spaces Removed",'secondary')
+
   }
   // close space 
   
+  // clear text 
+  const textClear = () => { 
+    setText('')
+    props.showalert("Text clear",'warning')
+
+   }
+  // close clear text 
   return (
     <div className="container">
       <div className="mb-3 my-4">
@@ -77,8 +98,14 @@ export default function TextForm(props) {
       <button className="btn btn-info my-2" onClick={copyTextfun}>
         Copy Text
       </button>
-      <button className="btn btn-secondary my-2 mx-3" onClick={removeSpace}>
+      <button className="btn btn-warning my-2 mx-3" onClick={textClear}>
+        Clear Text
+      </button>
+      <button className="btn btn-primary my-2 " onClick={removeSpace}>
         Remove extra Spaces
+      </button>
+      <button className="btn btn-secondary mx-3 my-2 " onClick={find_repeat}>
+        Find Reapeted Text
       </button>
       <div className="row">
         <div className="col-md-6">
@@ -93,10 +120,11 @@ export default function TextForm(props) {
           </div>
           <div>
             <h5>Reapeted Word :</h5>
-            <p>{textRepeater}</p>
+            <p id="reapeat_text"></p>
           </div>
         </div>
       </div>
     </div>
   );
 }
+

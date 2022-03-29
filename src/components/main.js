@@ -11,6 +11,9 @@ const Main = () => {
       msg:message,
       type:type
     })
+    setTimeout(() => {
+      setAlert(null)
+    }, 1000);
   }
 
   const togllemode = () => {
@@ -21,6 +24,32 @@ const Main = () => {
       document.getElementById("mybox").style.background = "#212529";
       document.getElementById("mybox").style.color = "#fff";
       showAlert('Dark mode has been enabled','success')
+      
+    setInterval(() => {
+      document.title="Mywebs - Dark Mode"
+    }, 1000);
+    setInterval(() => {
+      document.title="Mywebs - light Mode"
+    }, 750);
+    } else {
+      setmode("light");
+      document.body.style.backgroundColor = "#fff";
+      document.body.style.color = "#000";
+      document.getElementById("mybox").style.background = "#fff";
+      document.getElementById("mybox").style.color = "#000";
+      showAlert('Light mode has been enabled','success')
+      document.title="Mywebs - Light Mode "
+    }
+  }
+
+  const greenToggle=()=>{
+    if (mode === "light") {
+      setmode("info");
+      document.body.style.backgroundColor = "#39b9dc";
+      document.body.style.color = "#fff";
+      document.getElementById("mybox").style.background = "#39b9dc";
+      document.getElementById("mybox").style.color = "#fff";
+      showAlert('Dark mode has been enabled','success')
     } else {
       setmode("light");
       document.body.style.backgroundColor = "#fff";
@@ -29,12 +58,13 @@ const Main = () => {
       document.getElementById("mybox").style.color = "#000";
       showAlert('Light mode has been enabled','success')
     }
-  };
+  }
+  
   return (
     <>
-      <Navbar title="MyWebs" mode={mode} toggleMode={togllemode} />
+      <Navbar title="MyWebs" mode={mode} toggleMode={togllemode} greenToggle={greenToggle}  />
       <Alert myalert={alert} />
-      <TextForm heading="Enter the text to analyze" />
+      <TextForm heading="Enter the text to analyze"  showalert={showAlert}/>
       {/* < About /> */}
     </>
   );
