@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+
 } from "react-router-dom";
 import About from './About';
 import Alert from "./Alert";
@@ -76,11 +76,11 @@ const Main = () => {
 
 
       <Switch>
-          <Route path="/about">
-            <About />
+          <Route exact path="/about">
+            <About mode={mode} toggleMode={togllemode}  />
           </Route>
-          <Route path="/">
-          <TextForm heading="Enter the text to analyze"  showalert={showAlert}/>
+          <Route exact path="/">
+          <TextForm heading="Enter the text to analyze" mode={mode} toggleMode={togllemode}  showalert={showAlert}/>
           </Route>
         </Switch>
         </Router>

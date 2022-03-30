@@ -8,9 +8,9 @@ const Navbar = (props) => {
       
       <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <Link className="navbar-brand" to="/">
             {props.title}
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -32,6 +32,16 @@ const Navbar = (props) => {
               <li className="nav-item">
                 <Link className="nav-link" to="/about">
                   About Us
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/gallary">
+                  Gallary
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/contact">
+                  Contact Us
                 </Link>
               </li>
             </ul>

@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react';
 
 
-export default function () {
+ function About(props) {
    const [myStyle, setmyStyle] = useState({
        color:"#000",
        backgroundColor:"#fff"
@@ -79,8 +79,11 @@ export default function () {
     </div>
   </div>
 </div>
+
 <button className='btn my-4' style={btnColor} onClick={toggleStyle} >{btnText}</button>
     </div>
     </>
   )
 }
+
+export default About;
