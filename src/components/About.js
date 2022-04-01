@@ -1,45 +1,50 @@
 import React from 'react'
-import { useState } from 'react';
+// import { useState } from 'react';
 
 
  function About(props) {
-   const [myStyle, setmyStyle] = useState({
-       color:"#000",
-       backgroundColor:"#fff"
-   });
-   const [btnText, setbtnText] = useState(
-       'Enabel Dark mode'
-   );
-   const [btnColor ,setbtnColor]=useState({color:"#fff",backgroundColor:'#dc3545'})
-   const toggleStyle=()=>{
-      if(myStyle.color==="#fff"){
-        setmyStyle({
-            color:"#000",
-            backgroundColor:"#fff" 
-         })
-         setbtnText('Enable Dark Mode')
-         setbtnColor({
-            color:"#fff",backgroundColor:'#dc3545'
-         })
-      }
-      else{
-        setmyStyle({
-            color:"#fff",
-            backgroundColor:"#212529",
-            border:"0.3px solid #fff" 
-         })
-         setbtnText('Enable Light Mode')
-         setbtnColor({
-            color:"#fff",backgroundColor:'#212529',
-            border:"2px solid #fff"
-         })
-      }
-   }
+  //  const [myStyle, setmyStyle] = useState({
+  //      color:"#000",
+  //      backgroundColor:"#fff"
+  //  });
+  //  const [btnText, setbtnText] = useState(
+  //      'Enabel Dark mode'
+  //  );
+  //  const [btnColor ,setbtnColor]=useState({color:"#fff",backgroundColor:'#dc3545'})
+  //  const toggleStyle=()=>{
+  //     if(myStyle.color==="#fff"){
+  //       setmyStyle({
+  //           color:"#000",
+  //           backgroundColor:"#fff" 
+  //        })
+  //        setbtnText('Enable Dark Mode')
+  //        setbtnColor({
+  //           color:"#fff",backgroundColor:'#dc3545'
+  //        })
+  //     }
+  //     else{
+  //       setmyStyle({
+  //           color:"#fff",
+  //           backgroundColor:"#212529",
+  //           border:"0.3px solid #fff" 
+  //        })
+  //        setbtnText('Enable Light Mode')
+  //        setbtnColor({
+  //           color:"#fff",backgroundColor:'#212529',
+  //           border:"2px solid #fff"
+  //        })
+  //     }
+  //  }
 
+  let myStyle={
+    color:props.mode==='dark'?'white':'black',
+    backgroundColor:props.mode==='dark'?'#212529':'white',
+    border:props.mode==='dark'?'1px solid':'none'
+  }
   return (
       <>
      
-    <div className="container my-4 p-3" style={myStyle}>
+    <div className="container my-4 p-3" >
         <h3 className='my-2'>About Us</h3>
         <div className="accordion" id="accordionExample">
   <div className="accordion-item" style={myStyle}>
@@ -80,7 +85,7 @@ import { useState } from 'react';
   </div>
 </div>
 
-<button className='btn my-4' style={btnColor} onClick={toggleStyle} >{btnText}</button>
+{/* <button className='btn my-4' style={btnColor} onClick={toggleStyle} >{btnText}</button> */}
     </div>
     </>
   )

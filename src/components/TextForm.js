@@ -6,6 +6,7 @@ export default function TextForm(props) {
     setText(event.target.value);
   };
   const Uppercase = () => {
+    
     let newtext = text.toUpperCase();
     setText(newtext);
     props.showalert("Converted to uppercase",'danger')
@@ -34,7 +35,7 @@ export default function TextForm(props) {
         }
       }
     }
-    return res.join(" ,");
+    return res.join(" ");
   };
 
   let textRepeater = repeat(text);
@@ -89,29 +90,29 @@ export default function TextForm(props) {
           rows="10"
         ></textarea>
       </div>
-      <button className="btn btn-danger my-2" onClick={Uppercase}>
+      <button disabled={text.length===0} className="btn btn-danger my-2" onClick={Uppercase}>
         Uppercase
       </button>
-      <button className="btn btn-success mx-3 my-2" onClick={lowercase}>
+      <button disabled={text.length===0}  className="btn btn-success mx-3 my-2" onClick={lowercase}>
         Lowercase
       </button>
-      <button className="btn btn-info my-2" onClick={copyTextfun}>
+      <button disabled={text.length===0}  className="btn btn-info my-2" onClick={copyTextfun}>
         Copy Text
       </button>
-      <button className="btn btn-warning my-2 mx-3" onClick={textClear}>
+      <button disabled={text.length===0}  className="btn btn-warning my-2 mx-3" onClick={textClear}>
         Clear Text
       </button>
-      <button className="btn btn-primary my-2 " onClick={removeSpace}>
+      <button disabled={text.length===0}  className="btn btn-primary my-2 " onClick={removeSpace}>
         Remove extra Spaces
       </button>
-      <button className="btn btn-secondary mx-3 my-2 " onClick={find_repeat}>
+      <button disabled={text.length===0}  className="btn btn-secondary mx-3 my-2 " onClick={find_repeat}>
         Find Reapeted Text
       </button>
       <div className="row">
         <div className="col-md-6">
-          <h6 className="my-2">Word Counts : {CountWord.length}</h6>
+          <h6 className="my-2">Word Counts : {CountWord.filter((element)=>{return (element.length!==0)}).length}</h6>
           <h6>Character Counts : {text.length}</h6>
-          <h6>Time to read : {0.008 * CountWord.length}</h6>
+          <h6>Time to read : {0.008 * CountWord.filter((element)=>{return (element.length!==0)}).length}</h6>
         </div>
         <div className="col-md-6">
           <div className="preview">

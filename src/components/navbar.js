@@ -49,10 +49,10 @@ const Navbar = (props) => {
   <input className="form-check-input" type="checkbox" onClick={props.toggleMode} role="switch" id="flexSwitchCheckDefault" />
   <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable {props.mode==='light'?'dark':'light'} Mode</label>
 </div>
-<div className={`form-check form-switch mx-2 text-${props.mode==='dark'?'light':'dark'}`}>
+{/* <div className={`form-check form-switch mx-2 text-${props.mode==='dark'?'light':'dark'}`}>
   <input className="form-check-input" type="checkbox" onClick={props.greenToggle} role="switch" id="flexSwitchCheckDefault2" />
   <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable {props.mode==='light'?'Green':'light'} Mode</label>
-</div>
+</div> */}
           </div>
         </div>
       </nav>
