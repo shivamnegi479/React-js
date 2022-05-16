@@ -1,6 +1,6 @@
 {
   
-  "name": "testingdemo",
+  "name": "text_converter",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
